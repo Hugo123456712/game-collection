@@ -1,5 +1,4 @@
 <?php 
-
 function create_bdd(){
     $host = 'localhost';
     $dbname = 'td_game-collection';
@@ -20,7 +19,6 @@ function getVideoGamePerUser($idUser){
 
 function getMostPlayVideoGame($idUser){
     $bdd = create_bdd();
-    $sql = 'SELECT idJV FROM bibliotheque WHERE SELECT MAX(nbHeure) FROM bibliotheque';
+    $sql = 'SELECT idJV FROM bibliotheque WHERE (SELECT MAX(nbHeure) FROM bibliotheque)';
 }
-
 ?>
