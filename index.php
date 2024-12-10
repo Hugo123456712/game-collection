@@ -4,10 +4,10 @@ include "vendor/autoload.php";
 
 
 /* Structure de base d'une page*/
-include("views/header.php");
+include("views/headerView.php");
 
-include("views/home.php");
+include("views/homeView.php");
 
-include("views/footer.php");
+include("views/footerView.php");
 
 ?>

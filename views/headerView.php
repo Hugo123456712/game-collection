@@ -12,16 +12,16 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">MA BIBLIOTHEQUE</a>
+                    <a class="nav-link" href="bibliotheque.php">MA BIBLIOTHEQUE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">AJOUTER UN JEU</a>
+                    <a class="nav-link" href="ajout.php">AJOUTER UN JEU</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">CLASSEMENT</a>
+                    <a class="nav-link" href="classement.php">CLASSEMENT</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">PROFIL</a>
+                    <a class="nav-link" href="profil.php">PROFIL</a>
                 </li>
             </ul>
         </div>
