@@ -26,9 +26,3 @@ CREATE TABLE bibliotheque(
 	FOREIGN KEY (idJV) REFERENCES jeu_video(idJV),
     nbHeure INT
 );
-
-
-
-
-
-
