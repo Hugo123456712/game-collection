@@ -7,21 +7,28 @@ include 'models/userModels.php';
 include 'models/videoGameModels.php';
 include 'models/bddModels.php';
 
+include 'controllers/AjoutController.php';
+include 'controllers/AjoutFormulaireController.php';
+
 /* Structure de base d'une page*/
 include("views/headerView.php");
 
-// Analyser l'URL pour déterminer la vue à charger
 $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '/' :
     case '' :
-        include('views/homeView.php');
+        include 'views/homeView.php';
         break;
     case '/bibliotheque' :
         #loadView('bibliotheque');
         break;
     case '/ajout' :
-        #loadView('ajout');
+        $ajoutController = new AjoutController(new VideoGameModels());
+        $ajoutController->render();
+        break;
+    case '/ajoutFormulaire' :
+        $ajoutFormulaireController = new AjoutFormulaireController(new VideoGameModels());
+        $ajoutFormulaireController->render();
         break;
     case '/classement' :
         #loadView('classements');
