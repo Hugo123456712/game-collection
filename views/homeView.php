@@ -1,12 +1,10 @@
-<?php 
-$idUser = $_SESSION['user']['id'];
-$jeux = getVideoGamePerUser($idUser);
-?>
 
+<link rel="stylesheet" href="assets/homeView_style.css">
 <main>
     <div class="container mt-5">
         <div class="row">
             <div class="col">
+                <img src="/assets/pictures/background_main.png" alt="Photo d'accueil" heigth="250px">
                 <h1>SALUT, <?php htmlspecialchars($_SESSION['user']['username']) ?> ! <br> PRÊT À AJOUTER DES JEUX À TA COLLECTION ?</h1>
             </div>
         </div>

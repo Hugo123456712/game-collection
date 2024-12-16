@@ -13,12 +13,11 @@ include 'controllers/AjoutFormulaireController.php';
 /* Structure de base d'une page*/
 include("views/headerView.php");
 
-// Analyser l'URL pour déterminer la vue à charger
 $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '/' :
     case '' :
-        include('views/homeView.php');
+        include 'views/homeView.php';
         break;
     case '/bibliotheque' :
         #loadView('bibliotheque');
