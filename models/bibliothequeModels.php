@@ -1,21 +1,16 @@
 <?php 
-function create_bdd(){
-    $host = 'localhost';
-    $dbname = 'td_game-collection';
-    $user = 'root';
-    $password = '';
-    $pdo = new PDO('mysql:host='.$host.'; dbname='. $dbname, $user, $password, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    ]);
-    return $pdo;
+require_once "bddModels.php";
+
+
+function getVideoGamePerUser($idUser) {
+    $bdd = create_bdd();
+    $sql = 'SELECT idUser, bibliotheque.idJV, nomJV, nbHeure FROM bibliotheque INNER JOIN jeu_video ON bibliotheque.idJV = jeu_video.idJV WHERE idUser = :idUser';
+    $result = $bdd->prepare($sql);
+    $result->execute([':idUser' => $idUser]);
+    $jeux = $result->fetchAll(PDO::FETCH_ASSOC); 
+    return $jeux;
 }
 
-function getVideoGamePerUser($idUser){
-    $bdd = create_bdd();
-    $sql = 'SELECT idUser, idJV FROM bibliotheque WHERE idUser = :idUser';
-    $result = $bdd->prepare($sql);
-    $resultat = $result->execute();
-}
 
 function getMostPlayVideoGame($idUser){
     $bdd = create_bdd();
