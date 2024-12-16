@@ -4,9 +4,14 @@
             <div class="col">
                 <h1>Ajouter un jeu a sa bibliothèque</h1>
                 <?php if (isset($message)): ?>
-                    <div class="alert alert-info"><?= htmlspecialchars($message) ?></div>
+                    <div class="alert alert-success"><?= htmlspecialchars($message) ?></div>
                 <?php endif; ?>
-                <form method="post" action="ajoutFormulaire.php">
+                <?php if (!empty($errors)): ?>
+                    <?php foreach ($errors as $error): ?>
+                        <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <form method="post" action="ajoutFormulaire">
                     <div class="form-group">
                         <label for="nomJV">Nom du jeu</label>
                         <input type="text" class="form-control" id="nomJV" name="nomJV" required>
