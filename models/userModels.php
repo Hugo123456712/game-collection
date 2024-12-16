@@ -1,4 +1,6 @@
 <?php
+
+require_once 'models/bddModels.php';
 class UserModels
 {
     function create_bdd()

@@ -1,5 +1,5 @@
 <?php 
-require_once "bddModels.php";
+require_once "models/bddModels.php";
 
 class VideoGameModels
 {
