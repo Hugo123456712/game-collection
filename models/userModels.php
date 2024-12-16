@@ -1,7 +1,6 @@
 <?php
 class UserModels
 {
-
     function create_bdd()
     {
         $host = 'localhost';

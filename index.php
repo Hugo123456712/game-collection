@@ -2,14 +2,15 @@
 
 include "vendor/autoload.php";
 
-include("models/videoGameModels.php");
-include("models/bibliothequeModels.php");
-include("models/userModels.php");
+include 'models/bibliothequeModels.php';
+include 'models/userModels.php';
+include 'models/videoGameModels.php';
+include 'models/bddModels.php';
 
+include 'controllers/AjoutController.php';
+include 'controllers/AjoutFormulaireController.php';
 
-include("controllers/AjoutController.php");
-include("controllers/AjoutFormulaireController.php");
-
+/* Structure de base d'une page*/
 include("views/headerView.php");
 
 // Analyser l'URL pour déterminer la vue à charger

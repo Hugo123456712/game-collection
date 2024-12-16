@@ -1,3 +1,8 @@
+<?php 
+$idUser = $_SESSION['user']['id'];
+$jeux = getVideoGamePerUser($idUser);
+?>
+
 <main>
     <div class="container mt-5">
         <div class="row">
@@ -10,8 +15,23 @@
                 <h2>MES JEUX</h2>
             </div>
         </div>
-        <?php foreach($jeux as $jeu) ?>
-        
-        <?php endforeach; ?>
+        <div class="row">
+            <p>Mes jeux</p>
+            <?php if (!empty($jeux)): ?>
+                <?php foreach ($jeux as $jeu): ?>
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo htmlspecialchars($jeu['nomJV']); ?></h5>
+                                <p class="card-text"><?php echo htmlspecialchars($jeu['editeur']); ?></p>
+                                <p class="card-text"><?php echo htmlspecialchars($jeu['nbHeure']); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Aucun jeu dans votre collection pour le moment.</p>
+            <?php endif; ?>
+        </div>
     </div>
 </main>
