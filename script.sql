@@ -13,6 +13,8 @@ CREATE TABLE utilisateur(
 CREATE TABLE jeu_video(
 	idJV INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     nomJV VARCHAR(50),
+    descJV VARCHAR(150),
+    plateformeJV VARCHAR(50),
     editeur VARCHAR(50),
     dateSortie DATE,
     couverture VARCHAR(50)

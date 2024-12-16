@@ -1,7 +1,4 @@
-<?php 
-$idUser = $_SESSION['user']['id'];
-$jeux = getVideoGamePerUser($idUser);
-?>
+
 <link rel="stylesheet" href="assets/homeView_style.css">
 <main>
     <div class="container mt-5">
