@@ -2,6 +2,14 @@
 
 include "vendor/autoload.php";
 
+include("models/videoGameModels.php");
+include("models/bibliothequeModels.php");
+include("models/userModels.php");
+
+
+include("controllers/AjoutController.php");
+include("controllers/AjoutFormulaireController.php");
+
 include("views/headerView.php");
 
 // Analyser l'URL pour déterminer la vue à charger
@@ -15,7 +23,12 @@ switch ($request) {
         #loadView('bibliotheque');
         break;
     case '/ajout' :
-        #loadView('ajout');
+        $ajoutController = new AjoutController(new VideoGameModels());
+        $ajoutController->render();
+        break;
+    case '/ajoutFormulaire' :
+        $ajoutFormulaireController = new AjoutFormulaireController(new VideoGameModels());
+        $ajoutFormulaireController->render();
         break;
     case '/classement' :
         #loadView('classements');
