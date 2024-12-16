@@ -1,5 +1,7 @@
 {
     "name": "projet/game-collection",
     "type": "project",
-    "require": {}
+    "require": {},
+    "description": "Game Collection Deploy",
+    "license": "MIT"
 }
