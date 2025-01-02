@@ -16,9 +16,9 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
     </div>
-    <div class="pwd-input">
-        <label for="pwd">Mot de passe</label>
-        <input type="password" id="pwd" name="password" required>
+    <div class="mdp">
+        <label for="mdp">Mot de passe</label>
+        <input type="password" id="mdp" name="mdp" required>
     </div>
     <input type="submit" value="Se connecter">
 </form>
