@@ -28,7 +28,7 @@ switch ($request) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $user = loginModel::findByEmail($email);
+            $user = loginModels::findByEmail($email);
             
             if ($user && password_verify($password, $user['password'])) {
                 session_start();
