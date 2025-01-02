@@ -11,19 +11,17 @@
             <h2>Se connecter à Game Collection</h2>
         </div>
         
-        <form method="post" action="/home">
-            <div class="email-input">
-            <label for="email">Email</label>
-            <input type="text" id="email">
-            </div>
-            <div class="pwd-input">
-                <label for="pwd">Mot de passe</label>
-                <input type="text" id="pwd">
-            </div>
-            <input type="submit" value="Se connecter">
-        </form>
-        <p class="redirect">S'inscrire</p>
-    </body>
-<?php include 'footer.php'; ?>
+        <form method="post" action="/login">
+        <div class="email-input">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div class="pwd-input">
+        <label for="pwd">Mot de passe</label>
+        <input type="password" id="pwd" name="password" required>
+    </div>
+    <input type="submit" value="Se connecter">
+</form>
+<p class="redirect"><a href="/register">S'inscrire</a></p>
 </html>
     
