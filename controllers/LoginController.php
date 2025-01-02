@@ -17,6 +17,7 @@ class LoginController {
 
             if ($user && password_verify($password, $user['mdp'])) {
                 $_SESSION['user'] = $user;
+                error_log("User logged in: " . print_r($_SESSION['user'], true)); // Ajoutez cette ligne pour déboguer
                 header('Location: /home');
                 exit;
             } else {

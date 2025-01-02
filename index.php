@@ -33,6 +33,7 @@ switch ($request) {
         break;
     case '/home':
         if (isset($_SESSION['user'])) {
+            error_log("User session: " . print_r($_SESSION['user'], true)); // Ajoutez cette ligne pour déboguer
             include 'views/homeView.php';  
         } else {
             header("Location: /login");  
