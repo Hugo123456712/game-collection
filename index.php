@@ -23,8 +23,7 @@ switch ($request) {
         break;
     case '/bibliotheque' :
         #loadView('bibliotheque');
-        break;
-    
+        break;   
     case '/home':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
@@ -39,8 +38,9 @@ switch ($request) {
                 header('Location: /'); 
                 exit;
             }
+        
+        }
         break;
-
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
