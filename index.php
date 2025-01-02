@@ -48,7 +48,9 @@ switch ($request) {
                 }
             }
             break;
-       
+        case '/login':
+            include 'views/loginView.php'; 
+            break;
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

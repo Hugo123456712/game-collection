@@ -8,7 +8,7 @@
     <body>
         <div class="container">
             <h2>S'inscrire</h2>
-            <form method="post" action="/signup">
+            <form method="post" action="/login">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" id="nom" name="nom" required>
