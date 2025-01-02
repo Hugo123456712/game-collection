@@ -11,7 +11,7 @@
             <h2>Se connecter à Game Collection</h2>
         </div>
         
-        <form method="post" action="/login">
+        <form method="post" action="/home">
         <div class="email-input">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required>
