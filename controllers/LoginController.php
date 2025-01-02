@@ -1,31 +1,28 @@
 <?php
-session_start();
+// LoginController.php
+
 require_once 'models/loginModels.php';
 
 class LoginController {
-    public function login() {
+    public function showLoginForm() {
+        include 'views/loginView.php';
+    }
+
+    public function handleLogin() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            
             $user = loginModels::findByEmail($email);
+
             if ($user && password_verify($password, $user['password'])) {
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['user_name'] = $user['name'];
-                header('Location: /home');
+                session_start();
+                $_SESSION['user'] = $user;
+                header('Location: /homeView');
                 exit;
             } else {
-                $error = "Email ou mot de passe incorrect.";
-                include 'views/loginView.php';
+                header('Location: /?error=invalid_credentials');
+                exit;
             }
-        } else {
-            include 'views/loginView.php';
         }
-    }
-
-    public function logout() {
-        session_unset();
-        session_destroy();
-        header('Location: /login');
     }
 }
