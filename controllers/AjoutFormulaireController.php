@@ -26,7 +26,6 @@ class AjoutFormulaireController
                 $description = htmlspecialchars($_POST['description']);
                 $couverture = htmlspecialchars($_POST['couverture']);
 
-                // Debugging: Print the values
                 error_log("nomJV: $nomJV");
                 error_log("editeur: $editeur");
                 error_log("dateSortie: $dateSortie");
