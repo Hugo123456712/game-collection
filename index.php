@@ -30,6 +30,7 @@ switch ($request) {
         $signUpController = new SignUpController();
         $signUpController->handleSignUp();
         break;
+        
     case '/home':
         if (isset($_SESSION['user'])) {
             include 'views/homeView.php';  
