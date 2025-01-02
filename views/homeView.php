@@ -1,13 +1,10 @@
 
 <?php
 session_start();
-if (!isset($_SESSION['user'])) {
-    header("Location: /login");  
-    exit();
-}
-
-$user = $_SESSION['user'];  
+var_dump($_SESSION); 
+echo session_id();  
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
