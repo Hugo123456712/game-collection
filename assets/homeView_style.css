@@ -1,0 +1,11 @@
+.col > img{
+    margin-left: 0;
+    height: 440px;
+    width: 1440px;
+}
+
+.col > h1 {
+    z-index: 1;
+}
+
+
