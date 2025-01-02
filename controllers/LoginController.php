@@ -8,7 +8,7 @@ class LoginController {
             $email = $_POST['email'];
             $password = $_POST['password'];
             
-            $user = User::findByEmail($email);
+            $user = loginModels::findByEmail($email);
             if ($user && password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_name'] = $user['name'];

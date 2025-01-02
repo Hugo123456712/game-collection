@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -31,6 +33,7 @@ switch ($request) {
             $signUpController = new SignUpController();
             $signUpController->handleSignUp();
             break;
+
         case '/home':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $email = $_POST['email'];
