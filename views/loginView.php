@@ -23,5 +23,8 @@
     <input type="submit" value="Se connecter">
 </form>
 <p class="redirect"><a href="signUpView.php">S'inscrire</a></p>
+<script>
+        console.log("Contenu de la session :", <?php echo json_encode($_SESSION); ?>);
+    </script>
 </html>
     
