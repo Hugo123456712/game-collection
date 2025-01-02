@@ -43,15 +43,18 @@ switch ($request) {
                 }
             }
             break;
-    case '/homeView':
-    session_start();
-    if (isset($_SESSION['user'])) {
-        include 'views/homeView.php';
-    } else {
-        header('Location: /');
-        exit;
-    }
-    break;
+        
+        case '/homeView':
+            session_start();
+            if (isset($_SESSION['user'])) {
+                include 'views/homeView.php';
+            } else {
+                header('Location: /');
+                exit;
+            }
+            break;
+
+    
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
