@@ -32,7 +32,7 @@ switch ($request) {
         break;
     case '/home':
         if (isset($_SESSION['user'])) {
-            include 'Views/homeView.php';  
+            include 'views/homeView.php';  
         } else {
             header("Location: /login");  
             exit();
