@@ -34,23 +34,14 @@ switch ($request) {
             $signUpController->handleSignUp();
             break;
 
-        case '/home':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $email = $_POST['email'];
-                $password = $_POST['password'];
-                $user = loginModels::findByEmail($email);
-        
-                if ($user && password_verify($password, $user['password'])) {
-                    session_start();
-                    $_SESSION['user'] = $user;
-                    header('Location: /homeView');
-                    exit;
+            case '/home':
+                if (isset($_SESSION['user'])) {
+                    include 'Views/homeView.php';  
                 } else {
-                    header('Location: /?error=invalid_credentials');
-                    exit;
+                    header("Location: /login");  
+                    exit();
                 }
-            }
-            break;
+                break;
         case '/login':
             include 'views/loginView.php'; 
             break;
