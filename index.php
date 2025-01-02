@@ -24,6 +24,15 @@ switch ($request) {
     case '/bibliotheque' :
         #loadView('bibliotheque');
         break;
+    
+    case '/home':
+         if (!isset($_SESSION['user'])) {
+                header('Location: /');
+                exit;
+            }
+    include 'views/homeView.php'; 
+    break;
+
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
