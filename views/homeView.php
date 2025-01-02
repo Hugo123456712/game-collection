@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
     <title>Accueil</title>
 </head>
 <body>
-    <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['user_name']); ?> !</h1>
-    <a href="/logout">Se déconnecter</a>
+<h1>Bienvenue, <?= htmlspecialchars($_SESSION['user']['email']); ?>!</h1>
+<a href="/logout">Se déconnecter</a>
 </body>
 </html>

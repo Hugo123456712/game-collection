@@ -26,12 +26,20 @@ switch ($request) {
         break;
     
     case '/home':
-         if (!isset($_SESSION['user'])) {
-                header('Location: /');
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $user = loginModel::findByEmail($email);
+            
+            if ($user && password_verify($password, $user['password'])) {
+                session_start();
+                $_SESSION['user'] = $user;
+                include 'views/homeView.php';
+            } else {
+                header('Location: /'); 
                 exit;
             }
-    include 'views/homeView.php'; 
-    break;
+        break;
 
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
