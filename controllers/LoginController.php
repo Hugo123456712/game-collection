@@ -17,7 +17,7 @@ class LoginController {
 
             if ($user && password_verify($password, $user['mdp'])) {
                 $_SESSION['user'] = $user;
-                header('Location: /homeView');
+                header('Location: views/homeView');
                 exit;
             } else {
                 header('Location: /?error=invalid_credentials'); 
