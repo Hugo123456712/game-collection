@@ -5,7 +5,7 @@ class signUpModels {
     public function createUser($nom, $prenom, $email, $password) {
         $pdo = create_bdd();
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare("INSERT INTO utilisateur (nom, prenom, email, password) VALUES (?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO utilisateur (nom, prenom, email, mdp) VALUES (?, ?, ?, ?)");
         $stmt->execute([$nom, $prenom, $email, $hashedPassword]);
     }
 
