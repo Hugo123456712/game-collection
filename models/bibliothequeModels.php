@@ -32,4 +32,12 @@ class BibliothequeModels
         $resultat = $result->execute();
         return $resultat;
     }
+
+    function addGameToBibliotheque($idUser, $idJV)
+    {
+        $bdd = $this->create_bdd();
+        $sql = 'INSERT INTO bibliotheque (idUser, idJV) VALUES (:idUser, :idJV)';
+        $stmt = $bdd->prepare($sql);
+        return $stmt->execute(['idUser' => $idUser, 'idJV' => $idJV]);
+    }
 }

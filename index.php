@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 include "vendor/autoload.php";
 
@@ -23,12 +25,20 @@ switch ($request) {
         #loadView('bibliotheque');
         break;
     case '/ajout' :
-        $ajoutController = new AjoutController(new VideoGameModels());
-        $ajoutController->render();
+        $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ajoutController->addGameToBibliotheque();
+        }else {
+            $ajoutController->render();
+        }
         break;
     case '/ajoutFormulaire' :
         $ajoutFormulaireController = new AjoutFormulaireController(new VideoGameModels());
-        $ajoutFormulaireController->render();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $ajoutFormulaireController->addVideoGame();
+        } else {
+            $ajoutFormulaireController->render();
+        }
         break;
     case '/classement' :
         #loadView('classements');
