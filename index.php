@@ -8,6 +8,7 @@ include 'models/bibliothequeModels.php';
 include 'models/userModels.php';
 include 'models/videoGameModels.php';
 include 'models/bddModels.php';
+include 'models/loginModels.php';
 
 include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';

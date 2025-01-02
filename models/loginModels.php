@@ -19,7 +19,7 @@ if (!function_exists('create_bdd')) {
     }
 }
 
-class loginModel {
+class loginModels {
     public static function findByEmail($email) {
         $pdo = create_bdd(); 
         $stmt = $pdo->prepare('SELECT * FROM utilisateur WHERE email = ?');
