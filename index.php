@@ -24,26 +24,34 @@ switch ($request) {
         break;
     case '/bibliotheque' :
         #loadView('bibliotheque');
-        break;   
-    case '/home':
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST); 
-            die(); 
-            $email = $_POST['email'];
-            $password = $_POST['password'];
-            $user = loginModels::findByEmail($email);
-            
-            if ($user && password_verify($password, $user['password'])) {
-                session_start();
-                $_SESSION['user'] = $user;
-                include 'views/homeView.php';
-            } else {
-                header('Location: /'); 
-                exit;
-            }
+        break;  
+
+        case '/home':
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = $_POST['email'];
+                $password = $_POST['password'];
+                $user = loginModel::findByEmail($email);
         
-        }
-        break;
+                if ($user && password_verify($password, $user['password'])) {
+                    session_start();
+                    $_SESSION['user'] = $user;
+                    header('Location: /homeView');
+                    exit;
+                } else {
+                    header('Location: /?error=invalid_credentials');
+                    exit;
+                }
+            }
+            break;
+    case '/homeView':
+    session_start();
+    if (isset($_SESSION['user'])) {
+        include 'views/homeView.php';
+    } else {
+        header('Location: /');
+        exit;
+    }
+    break;
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
