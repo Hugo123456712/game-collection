@@ -1,8 +1,12 @@
-
 <?php
 session_start();
-var_dump($_SESSION); 
-echo session_id();  
+
+if (!isset($_SESSION['user'])) {
+    header('Location: /login');
+    exit();
+}
+
+$user = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>

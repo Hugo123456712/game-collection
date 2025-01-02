@@ -15,6 +15,7 @@ include 'models/loginModels.php';
 include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
 require_once 'controllers/SignUpController.php';
+require_once 'controllers/LoginController.php';
 
 include("views/headerView.php");
 
@@ -30,7 +31,6 @@ switch ($request) {
         $signUpController = new SignUpController();
         $signUpController->handleSignUp();
         break;
-        
     case '/home':
         if (isset($_SESSION['user'])) {
             include 'views/homeView.php';  
@@ -40,7 +40,12 @@ switch ($request) {
         }
         break;
     case '/login':
-        include 'views/loginView.php'; 
+        $loginController = new LoginController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $loginController->handleLogin();
+        } else {
+            $loginController->showLoginForm();
+        }
         break;
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
