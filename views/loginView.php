@@ -22,6 +22,6 @@
     </div>
     <input type="submit" value="Se connecter">
 </form>
-<p class="redirect"><a href="/register">S'inscrire</a></p>
+<p class="redirect"><a href="signUpView.php">S'inscrire</a></p>
 </html>
     

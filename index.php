@@ -12,6 +12,8 @@ include 'models/loginModels.php';
 
 include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
+require_once 'controllers/SignUpController.php';
+
 
 /* Structure de base d'une page*/
 include("views/headerView.php");
@@ -25,7 +27,10 @@ switch ($request) {
     case '/bibliotheque' :
         #loadView('bibliotheque');
         break;  
-
+        case '/signup':
+            $signUpController = new SignUpController();
+            $signUpController->handleSignUp();
+            break;
         case '/home':
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $email = $_POST['email'];
@@ -43,18 +48,7 @@ switch ($request) {
                 }
             }
             break;
-        
-        case '/homeView':
-            session_start();
-            if (isset($_SESSION['user'])) {
-                include 'views/homeView.php';
-            } else {
-                header('Location: /');
-                exit;
-            }
-            break;
-
-    
+       
     case '/ajout' :
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
