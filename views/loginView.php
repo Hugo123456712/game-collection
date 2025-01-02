@@ -12,19 +12,23 @@
         </div>
         
         <form method="post" action="/home">
-        <div class="email-input">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="mdp">
-        <label for="mdp">Mot de passe</label>
-        <input type="password" id="mdp" name="mdp" required>
-    </div>
-    <input type="submit" value="Se connecter">
-</form>
-<p class="redirect"><a href="signUpView.php">S'inscrire</a></p>
-<script>
-        console.log("Contenu de la session :", <?php echo json_encode($_SESSION); ?>);
-    </script>
+            <div class="email-input">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="mdp">
+                <label for="mdp">Mot de passe</label>
+                <input type="password" id="mdp" name="mdp" required>
+            </div>
+            <input type="submit" value="Se connecter">
+        </form>
+        <p class="redirect"><a href="signUpView.php">S'inscrire</a></p>
+        
+        <script>
+            <?php
+                session_start();
+                echo "console.log('Contenu de la session :', " . json_encode($_SESSION) . ");";
+            ?>
+        </script>
+    </body>
 </html>
-    
