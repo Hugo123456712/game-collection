@@ -19,7 +19,7 @@ $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
     case '/' :
     case '' :
-        include 'views/homeView.php';
+        include 'views/loginView.php';
         break;
     case '/bibliotheque' :
         #loadView('bibliotheque');

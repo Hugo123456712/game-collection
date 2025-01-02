@@ -7,9 +7,22 @@
         <link rel="stylesheet" href="../assets/styleLogin.css">
     </head>
     <body>
-        <div class="container ">
+        <div class="container">
             <h2>Se connecter à Game Collection</h2>
         </div>
+        
+        <form method="post" action="homeView.php">
+            <div class="email-input">
+            <label for="email">Email</label>
+            <input type="text" id="email">
+            </div>
+            <div class="pwd-input">
+                <label for="pwd">Mot de passe</label>
+                <input type="text" id="pwd">
+            </div>
+            <input type="submit" value="Se connecter">
+        </form>
+        <p class="redirect">S'inscrire</p>
     </body>
 <?php include 'footer.php'; ?>
 </html>
