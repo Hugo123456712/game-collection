@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/bddModels.php';
+require_once 'bddModels.php';
 class BibliothequeModels
 {
     private function create_bdd()
@@ -33,11 +33,24 @@ class BibliothequeModels
         return $resultat;
     }
 
-    function addGameToBibliotheque($idUser, $idJV)
-    {
+    public function addGameToBibliotheque($idUser, $idJV, $timeSpent) {
         $bdd = $this->create_bdd();
-        $sql = 'INSERT INTO bibliotheque (idUser, idJV) VALUES (:idUser, :idJV)';
+        $sql = 'INSERT INTO bibliotheque (idUser, idJV, nbHeure) VALUES (:idUser, :idJV, :timeSpent)';
         $stmt = $bdd->prepare($sql);
-        return $stmt->execute(['idUser' => $idUser, 'idJV' => $idJV]);
+        error_log("Executing query: $sql with idUser = $idUser, idJV = $idJV, timeSpent = $timeSpent"); // Ajoutez cette ligne pour déboguer
+        $result = $stmt->execute([
+            'idUser' => htmlspecialchars($idUser),
+            'idJV' => htmlspecialchars($idJV),
+            'timeSpent' => htmlspecialchars($timeSpent)
+        ]);
+
+        if ($result) {
+            error_log("Détails du jeu enregistrés avec succès.");
+        } else {
+            error_log("Erreur lors de l'enregistrement des détails du jeu.");
+        }
+
+        return $result;
     }
 }
+?>

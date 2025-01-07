@@ -1,7 +1,7 @@
 <?php 
-require_once "models/bddModels.php";
+require_once "bddModels.php";
 
-class VideoGameModels
+class videoGameModels
 {
     private function create_bdd()
     {
@@ -74,5 +74,45 @@ class VideoGameModels
         $anotherSQL = 'DELETE FROM jeu_video WHERE idJV = :idJV';
         $anotherResult = $bdd->prepare($anotherSQL);
         $anotherResultat = $anotherResult->execute();
+    }
+
+    function getUserGames($idUser)
+    {
+        $bdd = $this->create_bdd();
+        $sql = 'SELECT j.*, b.nbHeure FROM jeu_video j 
+                JOIN bibliotheque b ON j.idJV = b.idJV 
+                WHERE b.idUser = :idUser';
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute(['idUser' => htmlspecialchars($idUser)]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function saveGameDetails($idUser, $idJV, $timeSpent)
+    {
+        $bdd = $this->create_bdd();
+        $sql = 'INSERT INTO bibliotheque (idUser, idJV, nbHeure) VALUES (:idUser, :idJV, :timeSpent)';
+        $stmt = $bdd->prepare($sql);
+        $result = $stmt->execute([
+            'idUser' => htmlspecialchars($idUser),
+            'idJV' => htmlspecialchars($idJV),
+            'timeSpent' => htmlspecialchars($timeSpent)
+        ]);
+
+        if ($result) {
+            error_log("Détails du jeu enregistrés avec succès.");
+        } else {
+            error_log("Erreur lors de l'enregistrement des détails du jeu.");
+        }
+
+        return $result;
+    }
+
+    function getGameById($idJV)
+    {
+        $bdd = $this->create_bdd();
+        $sql = 'SELECT * FROM jeu_video WHERE idJV = :idJV';
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute(['idJV' => htmlspecialchars($idJV)]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

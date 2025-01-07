@@ -33,7 +33,7 @@ switch ($request) {
         break;
     case '/home':
         if (isset($_SESSION['user'])) {
-            error_log("User session: " . print_r($_SESSION['user'], true)); // Ajoutez cette ligne pour déboguer
+            error_log("User session: " . print_r($_SESSION['user'], true)); 
             include 'views/homeView.php';  
         } else {
             header("Location: /login");  
@@ -64,6 +64,9 @@ switch ($request) {
             $ajoutFormulaireController->render();
         }
         break;
+    case '/updateGame' :
+        require 'controllers/updateGameController.php';
+        break;
     case '/classement' :
         break;
     case '/profil' :
@@ -73,4 +76,7 @@ switch ($request) {
 }
 
 include("views/footerView.php");
+
+
+
 ?>

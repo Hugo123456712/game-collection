@@ -1,5 +1,5 @@
 <?php
-require_once 'Models/signUpModels.php';
+require_once 'models/signUpModels.php';
 
 class SignUpController {
     private $userModel;

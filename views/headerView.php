@@ -6,16 +6,16 @@
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="home">
             <img src="" alt="LOGO" class="d-inline-block align-top">
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="bibliotheque">MA BIBLIOTHEQUE</a>
+                    <a class="nav-link" href="ajout">MA BIBLIOTHEQUE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ajout">AJOUTER UN JEU</a>
+                    <a class="nav-link" href="ajoutFormulaire">AJOUTER UN JEU</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="classement">CLASSEMENT</a>
