@@ -1,6 +1,4 @@
 <?php
-// require_once "../models/videoGameModels.php";
-// require_once "../models/bibliothequeModels.php";
 
 class updateGameController {
     private VideoGameModels $videoGameModels;
@@ -13,10 +11,15 @@ class updateGameController {
 
     public function handleRequest() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $idJV = $_POST['idJV'];
-            $jeu = $this->videoGameModels->getGameById($idJV);
-            $_SESSION['jeu'] = $jeu;
-            require "../views/updateGameView.php";
+            if (isset($_POST['idJV'])) {
+                $idJV = $_POST['idJV'];
+                $jeu = $this->videoGameModels->getGameById($idJV);
+                $_SESSION['jeu'] = $jeu;
+                require 'views/updateGameView.php';
+            } else {
+                echo "Erreur: idJV non défini.";
+                exit();
+            }
         }
     }
 
@@ -24,7 +27,4 @@ class updateGameController {
         return $this->bibliothequeModels->addGameToBibliotheque($idUser, $idJV, $timeSpent);
     }
 }
-
-$controller = new updateGameController();
-$controller->handleRequest();
 ?>

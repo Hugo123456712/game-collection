@@ -13,15 +13,19 @@ include 'models/updateGameModels.php';
 include 'models/userModels.php';
 include 'models/videoGameModels.php';
 
-include 'controllers/AjoutController.php';
-include 'controllers/AjoutFormulaireController.php';
-include 'controllers/HomeController.php';
-include 'controllers/LoginController.php';
-include 'controllers/saveGameDetails.php';
-include 'controllers/signUpController.php';
-include 'controllers/updateGameController.php';
+require 'controllers/AjoutController.php';
+require 'controllers/AjoutFormulaireController.php';
+require 'controllers/HomeController.php';
+require 'controllers/LoginController.php';
+// include 'controllers/saveGameDetails.php';
+require 'controllers/signUpController.php';
+require 'controllers/updateGameController.php';
 
 include("views/headerView.php");
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $request = $_SERVER['REQUEST_URI'];
 switch ($request) {

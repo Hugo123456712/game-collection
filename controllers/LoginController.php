@@ -1,7 +1,5 @@
 <?php
 
-require_once 'models/loginModels.php';
-
 class LoginController {
     public function showLoginForm() {
         include 'views/loginView.php';
@@ -14,7 +12,6 @@ class LoginController {
             $user = loginModels::findByEmail($email);
 
             if ($user && password_verify($password, $user['mdp'])) {
-                session_start();
                 $_SESSION['user'] = $user;
                 $_SESSION['idUser'] = $user['idUser'];
                 error_log("User logged in: " . print_r($_SESSION['user'], true)); 

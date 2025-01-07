@@ -1,6 +1,4 @@
 <?php
-require_once 'models/signUpModels.php';
-
 class SignUpController {
     private $userModel;
 
