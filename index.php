@@ -18,8 +18,8 @@ include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
 include 'controllers/HomeController.php';
 include 'controllers/LoginController.php';
-include 'controllers/SaveGameDetails.php';
-include 'controllers/SignUpController.php';
+include 'controllers/saveGameDetails.php';
+include 'controllers/signUpController.php';
 include 'controllers/updateGameController.php';
 
 include("views/headerView.php");
