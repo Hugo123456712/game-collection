@@ -1,7 +1,6 @@
 <?php
 require_once "models/videoGameModels.php";
 
-session_start();
 $idUser = $_SESSION['idUser']; 
 
 $model = new VideoGameModels();

@@ -15,7 +15,6 @@ class updateGameController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $idJV = $_POST['idJV'];
             $jeu = $this->videoGameModels->getGameById($idJV);
-            session_start();
             $_SESSION['jeu'] = $jeu;
             require "../views/updateGameView.php";
         }

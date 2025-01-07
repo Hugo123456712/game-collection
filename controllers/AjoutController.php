@@ -29,7 +29,6 @@ class AjoutController
 
     public function addGameToBibliotheque()
     {
-        session_start();
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['idJV'])) {
             if (isset($_SESSION['user']['id'])) {
                 $idJV = htmlspecialchars($_POST['idJV']);

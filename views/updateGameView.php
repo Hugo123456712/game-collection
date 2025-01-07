@@ -1,5 +1,4 @@
 <?php
-session_start();
 $jeu = $_SESSION['jeu'];
 $user = $_SESSION['user'];
 ?>
