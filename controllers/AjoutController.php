@@ -35,7 +35,7 @@ class AjoutController
                 $idJV = htmlspecialchars($_POST['idJV']);
                 $idUser = $_SESSION['user']['id'];
 
-                $result = $this->bibliothequeModels->addGameToBibliotheque($idUser, $idJV);
+                $result = $this->bibliothequeModels->addGameToBibliotheque($idUser, $idJV, 0);
 
                 if ($result) {
                     $message = "Jeu ajouté à votre bibliothèque avec succès!";

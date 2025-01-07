@@ -6,16 +6,21 @@ ini_set('display_errors', 1);
 
 include "vendor/autoload.php";
 
+include 'models/bddModels.php';
 include 'models/bibliothequeModels.php';
+include 'models/loginModels.php';
+include 'models/signUpModels.php';
+include 'models/updateGameModels.php';
 include 'models/userModels.php';
 include 'models/videoGameModels.php';
-include 'models/bddModels.php';
-include 'models/loginModels.php';
 
 include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
-require_once 'controllers/SignUpController.php';
-require_once 'controllers/LoginController.php';
+include 'controllers/HomeController.php';
+include 'controllers/LoginController.php';
+include 'controllers/SaveGameDetails.php';
+include 'controllers/SignUpController.php';
+include 'controllers/updateGameController.php';
 
 include("views/headerView.php");
 

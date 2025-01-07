@@ -2,13 +2,13 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col">
-                <h1>Ajouter un jeu</h1>
+                <h1>Ajouter un jeu à sa bibliotheque</h1>
                 <?php if (isset($message)): ?>
                     <div class="alert alert-info"><?= htmlspecialchars($message) ?></div>
                 <?php endif; ?>
                 <form method="post">
                     <div class="form-group">
-                        <label for="nomJV">Nom du jeu</label>
+                        <!-- <label for="nomJV">Nom du jeu</label> -->
                         <input type="text" class="form-control" id="nomJV" name="nomJV" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Rechercher</button>
@@ -18,7 +18,7 @@
         
         <div class="row mt-5">
             <div class="col">
-                <h2>MES JEUX</h2>
+                <h2>Résultats de ma recherche</h2>
                 <div class="row">
                     <?php if (!empty($jeux)): ?>
                         <?php foreach($jeux as $jeu): ?>

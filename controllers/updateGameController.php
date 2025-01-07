@@ -1,6 +1,6 @@
 <?php
-require_once "../models/videoGameModels.php";
-require_once "../models/bibliothequeModels.php";
+// require_once "../models/videoGameModels.php";
+// require_once "../models/bibliothequeModels.php";
 
 class updateGameController {
     private VideoGameModels $videoGameModels;

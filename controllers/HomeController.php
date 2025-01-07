@@ -1,15 +1,28 @@
 <?php
 
-require_once 'models/videoGameModels.php'; 
-session_start();
+class HomeController
+{
+    private $models;
 
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php'); 
-    exit();
+    public function __construct(VideoGameModels $models)
+    {
+        $this->models = $models;
+    }
+
+    public function render()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['nomJV'])) {
+                $nomJV = htmlspecialchars($_POST['nomJV']);
+                $jeux = $this->models->searchGame($nomJV);
+                if (empty($jeux)) {
+                    header('Location: ajoutFormulaire');
+                    exit();
+                }
+            }
+        } else {
+            $jeux = $this->models->getAllGames();
+        }
+        require 'views/homeView.php';
+    }
 }
-
-$idUser = $_SESSION['user']['id'];
-
-$jeux = getVideoGamePerUser($idUser);
-
-include 'views/homeView.php';

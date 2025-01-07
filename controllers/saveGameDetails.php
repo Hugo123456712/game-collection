@@ -1,5 +1,5 @@
 <?php
-require_once "../controllers/updateGameController.php";
+// require_once "../controllers/updateGameController.php";
 
 session_start();
 
