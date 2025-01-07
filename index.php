@@ -14,7 +14,7 @@ include 'models/loginModels.php';
 
 include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
-require_once 'controllers/SignUpController.php';
+require_once '../controllers/SignUpController.php';
 require_once 'controllers/LoginController.php';
 
 include("views/headerView.php");
