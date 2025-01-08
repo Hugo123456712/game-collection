@@ -29,7 +29,7 @@
                                         <h5 class="card-title"><?= htmlspecialchars($jeu['nomJV']) ?></h5>
                                         <p class="card-text">Éditeur: <?= htmlspecialchars($jeu['editeur']) ?></p>
                                         <p class="card-text">Date de sortie: <?= htmlspecialchars($jeu['dateSortie']) ?></p>
-                                        <form method="post" action="controllers/updateGameController.php">
+                                        <form method="post" action="/updateGame">
                                             <input type="hidden" name="idJV" value="<?= htmlspecialchars($jeu['idJV']) ?>">
                                             <button type="submit" class="btn btn-success">Ajouter à ma bibliothèque</button>
                                         </form>

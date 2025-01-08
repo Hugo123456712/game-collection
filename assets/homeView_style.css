@@ -1,14 +1,18 @@
-.col > img{
-    margin-left: 0;
-    height: 440px;
-    width: 1440px;
+
+h1{
+    color: #FFFFFF;
+}
+
+
+body{
+    background-color: #211F2A !important; 
 }
 
 img{
     z-index: -1;
+    width: 100% !important;
 }
-
-.text-overlay {
+.salutation {
     position: absolute;
     top: 25%;
     left: 50%;
@@ -18,4 +22,6 @@ img{
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
     z-index: 1;
+    width: 100% !important; 
+    text-align: center;
 }

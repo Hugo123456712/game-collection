@@ -115,4 +115,21 @@ class videoGameModels
         $stmt->execute(['idJV' => htmlspecialchars($idJV)]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getVideoGamePerUser($idUser) {
+        $bdd = $this->create_bdd();
+        $sql = 'SELECT vg.*, b.nbHeure FROM jeu_video vg
+                JOIN bibliotheque b ON vg.idJV = b.idJV
+                WHERE b.idUser = :idUser';
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute(['idUser' => $idUser]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function deleteGameFromBibliotheque($idUser, $idJV) {
+        $bdd = $this->create_bdd();
+        $sql = "DELETE FROM bibliotheque WHERE idUser = :idUser AND idJV = :idJV";
+        $stmt = $bdd->prepare($sql);
+        return $stmt->execute(['idUser' => $idUser, 'idJV' => $idJV]);
+    }
 }

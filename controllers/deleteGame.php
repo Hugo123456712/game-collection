@@ -11,17 +11,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
     
-    $idJV = $_POST['idJV'];
-    $timeSpent = $_POST['timeSpent'];
+    $idJV = $_POST['gameId'];
 
     $controller = new updateGameController();
-    $result = $controller->addGameToBibliotheque($idUser, $idJV, $timeSpent);
+    $result = $controller->deleteGameFromBibliotheque($idUser, $idJV);
 
     if ($result) {
         header("Location: /home");
         exit();
     } else {
-        echo "Erreur lors de l'enregistrement des détails du jeu.";
+        echo "Erreur lors de la suppression du jeu.";
     }
 }
 ?>

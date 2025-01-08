@@ -9,67 +9,38 @@ $user = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Accueil</title>
-        <link rel="stylesheet" href="/assets/css/homeView_style.css">
-    </head>
-    <body>
-        <div class="img_principal">
-            <img src="/assets/pictures/background_main.png" alt="Illustration zelda BOTW">
-            <div class="text-overlay">
-                <p>Salut, <?php echo htmlspecialchars($user['email']); ?> ! <br> 
-                Prêt à ajouter des jeux à ta collection ?</p>
-            </div>
-        </div>
-       
-        <main>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/assets/homeView_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <img src="/assets/pictures/background_main.png" alt="">
+    <p class='salutation'>Salut <?= $user['nom'] ?> ! <br> Prêt à ajouter des jeux à ta collection ?</p>  
     <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <h1>Ajouter un jeu</h1>
-                <?php if (isset($message)): ?>
-                    <div class="alert alert-info"><?= htmlspecialchars($message) ?></div>
-                <?php endif; ?>
-                <form method="post">
-                    <div class="form-group">
-                        <label for="nomJV">Nom du jeu</label>
-                        <input type="text" class="form-control" id="nomJV" name="nomJV" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Rechercher</button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="row mt-5">
-            <div class="col">
-                <h2>MES JEUX</h2>
-                <div class="row">
-                    <?php if (!empty($jeux)): ?>
-                        <?php foreach($jeux as $jeu): ?>
-                            <div class="col-md-4">
-                                <div class="card mb-4">
-                                    <img src="<?= htmlspecialchars($jeu['couverture']) ?>" class="card-img-top" alt="<?= htmlspecialchars($jeu['nomJV']) ?>">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?= htmlspecialchars($jeu['nomJV']) ?></h5>
-                                        <p class="card-text">Éditeur: <?= htmlspecialchars($jeu['editeur']) ?></p>
-                                        <p class="card-text">Date de sortie: <?= htmlspecialchars($jeu['dateSortie']) ?></p>
-                                        <form method="post" action="ajout">
-                                            <input type="hidden" name="idJV" value="<?= htmlspecialchars($jeu['idJV']) ?>">
-                                            <button type="submit" class="btn btn-success">Ajouter à ma bibliothèque</button>
-                                        </form>
-                                    </div>
-                                </div>
+        <h1>Mes Jeux</h1>
+        <?php if (!empty($jeux)): ?>
+            <div class="row">
+                <?php foreach ($jeux as $jeu): ?>
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <a href=""></a>
+                            <div class="card-body">
+                                <h5 class="card-title"><?= htmlspecialchars($jeu['nomJV']) ?></h5>
+                                <p class="card-text"><?= htmlspecialchars($jeu['descJV']) ?></p>
+                                <p class="card-text"><?= htmlspecialchars($jeu['editeur']) ?></p>
+                                <p class="card-text"><?= htmlspecialchars($jeu['nbHeure']) ?> heures</p>
                             </div>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <p class="text-center">Aucun jeu trouvé dans la ludothèque.</p>
-                    <?php endif; ?>
-                </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        </div>
+        <?php else: ?>
+            <p>Aucun jeu trouvé dans votre bibliothèque.</p>
+        <?php endif; ?>
     </div>
-    <?php echo $user['idUser'];
-    ?>
-</main>
+</body>
 </html>

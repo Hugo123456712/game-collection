@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/assets/styleAjoutFormulaire.css">
 <main>
     <div class="container mt-5">
         <div class="row">

@@ -16,6 +16,7 @@ include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
 require_once 'controllers/SignUpController.php';
 require_once 'controllers/LoginController.php';
+include 'controllers/profilController.php';
 
 include("views/headerView.php");
 
@@ -26,19 +27,14 @@ switch ($request) {
         include 'views/signUpView.php';
         break;
     case '/bibliotheque' :
+        // Inclure la vue de la bibliothèque ici
         break;  
     case '/signup':
         $signUpController = new SignUpController();
         $signUpController->handleSignUp();
         break;
     case '/home':
-        if (isset($_SESSION['user'])) {
-            error_log("User session: " . print_r($_SESSION['user'], true)); 
-            include 'views/homeView.php';  
-        } else {
-            header("Location: /login");  
-            exit();
-        }
+        require 'controllers/HomeController.php';
         break;
     case '/login':
         $loginController = new LoginController();
@@ -67,16 +63,31 @@ switch ($request) {
     case '/updateGame' :
         require 'controllers/updateGameController.php';
         break;
+    case '/saveGameDetails' :
+        require 'controllers/saveGameDetails.php';
+        break;
+    case '/deleteGame' :
+        require 'controllers/deleteGame.php';
+        break;
     case '/classement' :
+        // Inclure la vue du classement ici
         break;
     case '/profil' :
+        $profilController = new profilController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $profilController->updateProfile($_POST['idUser'], $_POST['prenom'], $_POST['nom'], $_POST['pwd'], $_POST['email']);
+        } else {
+            $profilController->displayProfile($_SESSION['user']['idUser']);
+        }
+        break;
+    case '/logout' :
+        require 'controllers/LogoutController.php';
         break;
     default:
+        // Inclure une vue par défaut ou une page d'erreur ici
         break;
 }
 
 include("views/footerView.php");
-
-
 
 ?>
