@@ -1,24 +1,28 @@
 <?php
-session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include "vendor/autoload.php";
 
+include 'models/bddModels.php';
 include 'models/bibliothequeModels.php';
+include 'models/loginModels.php';
+include 'models/signUpModels.php';
+include 'models/updateGameModels.php';
 include 'models/userModels.php';
 include 'models/videoGameModels.php';
-include 'models/bddModels.php';
-include 'models/loginModels.php';
 
 include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
 require_once 'controllers/SignUpController.php';
 require_once 'controllers/LoginController.php';
-include 'controllers/profilController.php';
 
 include("views/headerView.php");
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 $request = $_SERVER['REQUEST_URI'];
 switch ($request) {
