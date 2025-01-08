@@ -4,10 +4,9 @@ require_once "models/bibliothequeModels.php";
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['idUser'])) {
-        $idUser = $_POST['idUser']; 
+    if (isset($_SESSION['user'])) {
+        $idUser = $_SESSION['user']['idUser']; 
     } else {
-        error_log("Erreur: utilisateur non connecté.");
         echo "Erreur: utilisateur non connecté.";
         exit();
     }
@@ -15,18 +14,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idJV = $_POST['idJV'];
     $timeSpent = $_POST['timeSpent'];
 
-    error_log("Received form data: idUser = $idUser, idJV = $idJV, timeSpent = $timeSpent"); // Debugging information
+    $bibliothequeModels = new BibliothequeModels();
+    $existingGame = $bibliothequeModels->getGameFromBibliotheque($idUser, $idJV);
 
-    $bibliothequeModel = new BibliothequeModels();
-    $result = $bibliothequeModel->addGameToBibliotheque($idUser, $idJV, $timeSpent);
-
-    if ($result) {
-        error_log("Détails du jeu enregistrés avec succès.");
-        header("Location: /home");
-        exit();
+    if ($existingGame) {
+        echo "Le jeu est déjà dans votre bibliothèque.";
     } else {
-        error_log("Erreur lors de l'enregistrement des détails du jeu.");
-        echo "Erreur lors de l'enregistrement des détails du jeu.";
+        $result = $bibliothequeModels->addGameToBibliotheque($idUser, $idJV, $timeSpent);
+
+        if ($result) {
+            header("Location: /home");
+            exit();
+        } else {
+            echo "Erreur lors de l'enregistrement des détails du jeu.";
+        }
     }
 }
 ?>

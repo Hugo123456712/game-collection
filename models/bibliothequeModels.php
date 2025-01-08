@@ -53,5 +53,49 @@ class BibliothequeModels
 
         return $result;
     }
+
+    public function deleteGameFromBibliotheque($idUser, $idJV) {
+        $bdd = $this->create_bdd();
+        $sql = 'DELETE FROM bibliotheque WHERE idUser = :idUser AND idJV = :idJV';
+        $stmt = $bdd->prepare($sql);
+        $result = $stmt->execute([
+            'idUser' => htmlspecialchars($idUser),
+            'idJV' => htmlspecialchars($idJV)
+        ]);
+
+        if ($result) {
+            error_log("Jeu supprimé avec succès.");
+        } else {
+            error_log("Erreur lors de la suppression du jeu.");
+        }
+
+        return $result;
+    }
+
+    public function getGameFromBibliotheque($idUser, $idJV) {
+        $bdd = $this->create_bdd();
+        $sql = 'SELECT * FROM bibliotheque WHERE idUser = :idUser AND idJV = :idJV';
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute([
+            'idUser' => htmlspecialchars($idUser),
+            'idJV' => htmlspecialchars($idJV)
+        ]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getTopPlayers()
+    {
+        $bdd = $this->create_bdd();
+        $sql = 'SELECT utilisateur.prenom, utilisateur.nom, jeu_video.nomJV, SUM(bibliotheque.nbHeure) as totalHeures 
+                FROM bibliotheque 
+                JOIN utilisateur ON bibliotheque.idUser = utilisateur.idUser 
+                JOIN jeu_video ON bibliotheque.idJV = jeu_video.idJV
+                GROUP BY bibliotheque.idUser, jeu_video.nomJV
+                ORDER BY totalHeures DESC 
+                LIMIT 20';
+        $stmt = $bdd->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

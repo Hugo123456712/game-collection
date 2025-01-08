@@ -1,20 +1,20 @@
 <?php
-require_once "controllers/updateGameController.php";
+require_once "models/bibliothequeModels.php";
 
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_SESSION['idUser'])) {
-        $idUser = $_SESSION['idUser']; 
+    if (isset($_SESSION['user'])) {
+        $idUser = $_SESSION['user']['idUser']; 
     } else {
         echo "Erreur: utilisateur non connecté.";
         exit();
     }
     
-    $idJV = $_POST['gameId'];
+    $idJV = $_POST['idJV'];
 
-    $controller = new updateGameController();
-    $result = $controller->deleteGameFromBibliotheque($idUser, $idJV);
+    $bibliothequeModels = new BibliothequeModels();
+    $result = $bibliothequeModels->deleteGameFromBibliotheque($idUser, $idJV);
 
     if ($result) {
         header("Location: /home");

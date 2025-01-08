@@ -20,6 +20,7 @@ require_once 'controllers/LoginController.php';
 require_once 'controllers/profilController.php';
 require_once 'controllers/updateGameController.php';
 require_once 'controllers/HomeController.php';
+require_once 'controllers/ClassementController.php';
 
 include("views/headerView.php");
 
@@ -72,7 +73,15 @@ switch ($request) {
         $updateGameController = new updateGameController();
         $updateGameController->handleRequest();
         break;
+    case '/saveGameDetails' :
+        require 'controllers/saveGameDetails.php';
+        break;
+    case '/deleteGame' :
+        require 'controllers/deleteGame.php';
+        break;
     case '/classement' :
+        $classementController = new ClassementController();
+        $classementController->render();
         break;
     case '/profil' :
         $profilController = new ProfilController();
