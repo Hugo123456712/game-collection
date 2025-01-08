@@ -33,5 +33,8 @@
                 <button type="submit" name="SignUp" class="btn btn-primary">S'inscrire</button>
             </form>
         </div>
+        <div class="container">
+            <a href="/login">Déjà inscrit ? Connectez-vous</a>
+        </div>
     </body>
 </html>

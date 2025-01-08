@@ -16,11 +16,11 @@ class updateGameController {
             if (isset($_POST['idJV'])) {
                 $idJV = $_POST['idJV'];
                 $jeu = $this->videoGameModels->getGameById($idJV);
-                session_start();
                 $_SESSION['jeu'] = $jeu;
-                require "views/updateGameView.php";
+                require 'views/updateGameView.php';
             } else {
-                echo "Erreur: ID du jeu non défini.";
+                echo "Erreur: idJV non défini.";
+                exit();
             }
         }
     }
@@ -33,7 +33,4 @@ class updateGameController {
         return $this->videoGameModels->deleteGameFromBibliotheque($idUser, $idJV);
     }
 }
-
-$controller = new updateGameController();
-$controller->handleRequest();
 ?>
