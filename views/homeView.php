@@ -19,7 +19,7 @@ $user = $_SESSION['user'];
 </head>
 <body>
     <img src="/assets/pictures/background_main.png" alt="">
-    <p class='salutation'>Salut <?= $user['nom'] ?> ! <br> Prêt à ajouter des jeux à ta collection ?</p>  
+    <p class='salutation'>Salut <?= htmlspecialchars($user['nom']) ?> ! <br> Prêt à ajouter des jeux à ta collection ?</p>  
     <div class="container mt-5">
         <h1>Mes Jeux</h1>
         <?php if (!empty($jeux)): ?>
@@ -27,7 +27,7 @@ $user = $_SESSION['user'];
                 <?php foreach ($jeux as $jeu): ?>
                     <div class="col-md-4">
                         <div class="card mb-4">
-                            <a href=""></a>
+                            <a href="updateGame?gameId=<?= htmlspecialchars($jeu['idJV']) ?>"></a>
                             <div class="card-body">
                                 <h5 class="card-title"><?= htmlspecialchars($jeu['nomJV']) ?></h5>
                                 <p class="card-text"><?= htmlspecialchars($jeu['descJV']) ?></p>

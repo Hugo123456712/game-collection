@@ -17,6 +17,9 @@ include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
 require_once 'controllers/SignUpController.php';
 require_once 'controllers/LoginController.php';
+require_once 'controllers/profilController.php';
+require_once 'controllers/updateGameController.php';
+require_once 'controllers/HomeController.php';
 
 include("views/headerView.php");
 
@@ -38,7 +41,8 @@ switch ($request) {
         $signUpController->handleSignUp();
         break;
     case '/home':
-        require 'controllers/HomeController.php';
+        $homeController = new HomeController(new VideoGameModels(), new BibliothequeModels());
+        $homeController->render();
         break;
     case '/login':
         $loginController = new LoginController();
@@ -65,33 +69,22 @@ switch ($request) {
         }
         break;
     case '/updateGame' :
-        require 'controllers/updateGameController.php';
-        break;
-    case '/saveGameDetails' :
-        require 'controllers/saveGameDetails.php';
-        break;
-    case '/deleteGame' :
-        require 'controllers/deleteGame.php';
+        $updateGameController = new updateGameController();
+        $updateGameController->handleRequest();
         break;
     case '/classement' :
-        // Inclure la vue du classement ici
         break;
     case '/profil' :
-        $profilController = new profilController();
+        $profilController = new ProfilController();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $profilController->updateProfile($_POST['idUser'], $_POST['prenom'], $_POST['nom'], $_POST['pwd'], $_POST['email']);
         } else {
             $profilController->displayProfile($_SESSION['user']['idUser']);
         }
         break;
-    case '/logout' :
-        require 'controllers/LogoutController.php';
-        break;
     default:
-        // Inclure une vue par défaut ou une page d'erreur ici
         break;
 }
 
 include("views/footerView.php");
-
 ?>
