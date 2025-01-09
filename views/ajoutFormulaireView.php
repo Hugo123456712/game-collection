@@ -1,4 +1,6 @@
+<head>
 <link rel="stylesheet" href="/assets/styleAjoutFormulaire.css">
+</head>
 <main>
     <div class="container mt-5">
         <div class="row">

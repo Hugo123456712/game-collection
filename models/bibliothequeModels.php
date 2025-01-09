@@ -97,5 +97,22 @@ class BibliothequeModels
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function deleteGamesByUser($idUser) {
+        $bdd = $this->create_bdd();
+        $sql = 'DELETE FROM bibliotheque WHERE idUser = :idUser';
+        $stmt = $bdd->prepare($sql);
+        $result = $stmt->execute([
+            'idUser' => htmlspecialchars($idUser)
+        ]);
+
+        if ($result) {
+            error_log("Jeux de l'utilisateur supprimés avec succès.");
+        } else {
+            error_log("Erreur lors de la suppression des jeux de l'utilisateur.");
+        }
+
+        return $result;
+    }
 }
 ?>

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="ajoutJeuApplistyle.css">
+
 <main>
     <div class="container mt-5">
         <div class="row">
@@ -8,7 +10,6 @@
                 <?php endif; ?>
                 <form method="post">
                     <div class="form-group">
-                        <!-- <label for="nomJV">Nom du jeu</label> -->
                         <input type="text" class="form-control" id="nomJV" name="nomJV" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Rechercher</button>

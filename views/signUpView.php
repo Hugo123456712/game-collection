@@ -3,7 +3,7 @@
     <head>
         <title>Inscription</title>
         <meta charset="utf-8" lang="fr">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/signUpstyle.css">
     </head>
     <body>
         <div class="container">

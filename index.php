@@ -39,7 +39,11 @@ switch ($request) {
         break;  
     case '/signup':
         $signUpController = new SignUpController();
-        $signUpController->handleSignUp();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $signUpController->handleSignUp();
+        } else {
+            include 'views/signUpView.php';
+        }
         break;
     case '/home':
         $homeController = new HomeController(new VideoGameModels(), new BibliothequeModels());
@@ -90,6 +94,12 @@ switch ($request) {
         } else {
             $profilController->displayProfile($_SESSION['user']['idUser']);
         }
+        break;
+    case '/deleteAccount' :
+        require 'controllers/DeleteCompteController.php';
+        break;
+    case '/logout' :
+        require 'controllers/LogoutController.php';
         break;
     default:
         break;

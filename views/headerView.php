@@ -25,7 +25,7 @@
             <img src="" alt="LOGO" class="d-inline-block align-top">
         </a>
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="ajout">MA BIBLIOTHEQUE</a>
                 </li>
@@ -42,3 +42,5 @@
         </div>
     </nav>
 </header>
+</body>
+</html>

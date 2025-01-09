@@ -1,9 +1,10 @@
 <?php
 
-require_once 'models/bddModels.php';
+require_once 'bddModels.php';
+
 class UserModels
 {
-    function create_bdd()
+    private function create_bdd()
     {
         $host = 'localhost';
         $dbname = 'td_game-collection';
@@ -15,35 +16,21 @@ class UserModels
         return $pdo;
     }
 
-    function viewUser($idUser)
-    {
+    public function deleteUser($idUser) {
         $bdd = $this->create_bdd();
-        $sql = 'SELECT prenom, nom, email FROM UTILISATEUR WHERE idUser = :idUser';
-        $result = $bdd->prepare($sql);
-        $resultat = $result->execute();
-    }
+        $sql = 'DELETE FROM utilisateur WHERE idUser = :idUser';
+        $stmt = $bdd->prepare($sql);
+        $result = $stmt->execute([
+            'idUser' => htmlspecialchars($idUser)
+        ]);
 
-    function addUser($prenom, $nom, $email, $mdp)
-    {
-        $bdd = $this->create_bdd();
-        $prenom = htmlspecialchars($prenom);
-        $nom = htmlspecialchars($nom);
-        $email = htmlspecialchars($email);
-        $mdp = htmlspecialchars($mdp);
+        if ($result) {
+            error_log("Utilisateur supprimé avec succès.");
+        } else {
+            error_log("Erreur lors de la suppression de l'utilisateur.");
+        }
 
-        $sql = 'INSERT INTO UTILISATEUR (prenom, nom, email, mdp)
-    VALUES (:prenom, :nom, :email, :mdp)';
-        $result = $bdd->prepare($sql);
-        $resultat = $result->execute();
-    }
-
-    function deleteUser($idUser)
-    {
-        $bdd = $this->create_bdd();
-        $idUser = htmlspecialchars($idUser);
-        $sql = 'DELETE FROM UTILISATEUR WHERE idUser = :idUser';
-        $result = $bdd->prepare($sql);
-        $resultat = $result->execute();
+        return $result;
     }
 }
 ?>

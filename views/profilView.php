@@ -26,12 +26,13 @@
             <input type="password" class="form-control" id="pwd_confirm" name="pwd_confirm" value="<?= isset($user['mdp']) ? htmlspecialchars($user['mdp']) : '' ?>" required>
         </div>
         <button type="submit" class="btn btn-primary">Modifier</button>
-        <button type="button" class="btn btn-danger">Supprimer mon compte</button>
-        
     </form>
-    <form method="post" action="/logout" >
+    <form method="post" action="/deleteAccount">
+        <button type="submit" class="btn btn-danger">Supprimer mon compte</button>
+    </form>
+    <form method="post" action="/logout">
         <button type="submit" class="btn btn-secondary">Se Déconnecter</button>
-        </form>
+    </form>
     <?php else: ?>
     <p>Erreur : Les informations de l'utilisateur n'ont pas pu être récupérées.</p>
     <?php endif; ?>
