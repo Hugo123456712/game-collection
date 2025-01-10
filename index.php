@@ -9,13 +9,12 @@ include 'models/bddModels.php';
 include 'models/bibliothequeModels.php';
 include 'models/loginModels.php';
 include 'models/signUpModels.php';
-include 'models/updateGameModels.php';
 include 'models/userModels.php';
 include 'models/videoGameModels.php';
 
 include 'controllers/AjoutController.php';
 include 'controllers/AjoutFormulaireController.php';
-require_once 'controllers/SignUpController.php';
+require_once 'controllers/signUpController.php';
 require_once 'controllers/LoginController.php';
 require_once 'controllers/profilController.php';
 require_once 'controllers/updateGameController.php';
