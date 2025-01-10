@@ -15,9 +15,12 @@ $user = $_SESSION['user'];
 </head>
 
 <body>
-    <img src="/assets/pictures/background_main.png" alt="Background Image">
-    <p class='salutation'>Salut <?= htmlspecialchars($user['nom']) ?> ! <br> Prêt à ajouter des jeux à ta collection ?</p>
-    <div class="container mt-5">
+    <div class="background-section">
+        <img src="/assets/pictures/background_main.png" alt="Background Image">
+        <div class="overlay"></div>
+        <hi class='salutation'>Salut <?= htmlspecialchars($user['nom']) ?> ! <br> Prêt à ajouter des jeux à ta collection ?</h1>
+    </div>
+    <section class="container">
         <h1>Mes Jeux</h1>
         <?php if (!empty($jeux)): ?>
             <div class="row">
@@ -38,5 +41,5 @@ $user = $_SESSION['user'];
         <?php else: ?>
             <p>Aucun jeu trouvé dans votre bibliothèque.</p>
         <?php endif; ?>
-    </div>
+    </section>
 </body>

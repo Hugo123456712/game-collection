@@ -44,7 +44,6 @@ main {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 20px;
     max-width: 400px;
     margin: 20px 0;
     margin-top: 20px;
@@ -61,7 +60,7 @@ input.form-control {
     margin: 5px 0;
     border: none;
     border-radius: 5px;
-    background-color: #2B2F40;
+    background-color: #211F2A;
     color: white;
 }
 
