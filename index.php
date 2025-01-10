@@ -28,21 +28,44 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $request = $_SERVER['REQUEST_URI'];
+
+// gestion de la méthode post
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    switch ($request) {
+        case '/signup':
+            $signUpController = new SignUpController();
+            $signUpController->handleSignUp();
+            break;
+        case '/login':
+            $loginController = new LoginController();
+            $loginController->handleLogin();
+            break;
+        case '/ajout':
+            $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
+            $ajoutController->addGameToBibliotheque();
+            break;
+        case '/ajoutFormulaire':
+            $ajoutFormulaireController = new AjoutFormulaireController(new VideoGameModels());
+            $ajoutFormulaireController->addVideoGame();
+            break;
+        case '/profil':
+            $profilController = new ProfilController();
+            $profilController->updateProfile($_POST['idUser'], $_POST['prenom'], $_POST['nom'], $_POST['pwd'], $_POST['email']);
+            break;
+    }
+}
+
+// gestion de la méthode get
 switch ($request) {
-    case '/' :
-    case '' :
+    case '/':
+    case '':
         include 'views/signUpView.php';
         break;
-    case '/bibliotheque' :
+    case '/bibliotheque':
         // Inclure la vue de la bibliothèque ici
-        break;  
+        break;
     case '/signup':
-        $signUpController = new SignUpController();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $signUpController->handleSignUp();
-        } else {
-            include 'views/signUpView.php';
-        }
+        include 'views/signUpView.php';
         break;
     case '/home':
         $homeController = new HomeController(new VideoGameModels(), new BibliothequeModels());
@@ -50,54 +73,38 @@ switch ($request) {
         break;
     case '/login':
         $loginController = new LoginController();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $loginController->handleLogin();
-        } else {
-            $loginController->showLoginForm();
-        }
+        $loginController->showLoginForm();
         break;
-    case '/ajout' :
+    case '/ajout':
         $ajoutController = new AjoutController(new VideoGameModels(), new BibliothequeModels());
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $ajoutController->addGameToBibliotheque();
-        } else {
-            $ajoutController->render();
-        }
+        $ajoutController->render();
         break;
-    case '/ajoutFormulaire' :
+    case '/ajoutFormulaire':
         $ajoutFormulaireController = new AjoutFormulaireController(new VideoGameModels());
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $ajoutFormulaireController->addVideoGame();
-        } else {
-            $ajoutFormulaireController->render();
-        }
+        $ajoutFormulaireController->render();
         break;
-    case '/updateGame' :
+    case '/updateGame':
         $updateGameController = new updateGameController();
         $updateGameController->handleRequest();
         break;
-    case '/saveGameDetails' :
+    case '/saveGameDetails':
         require 'controllers/saveGameDetails.php';
         break;
-    case '/deleteGame' :
+    case '/deleteGame':
         require 'controllers/deleteGame.php';
         break;
-    case '/classement' :
+    case '/classement':
         $classementController = new ClassementController();
         $classementController->render();
         break;
-    case '/profil' :
+    case '/profil':
         $profilController = new ProfilController();
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $profilController->updateProfile($_POST['idUser'], $_POST['prenom'], $_POST['nom'], $_POST['pwd'], $_POST['email']);
-        } else {
-            $profilController->displayProfile($_SESSION['user']['idUser']);
-        }
+        $profilController->displayProfile($_SESSION['user']['idUser']);
         break;
-    case '/deleteAccount' :
+    case '/deleteAccount':
         require 'controllers/DeleteCompteController.php';
         break;
-    case '/logout' :
+    case '/logout':
         require 'controllers/LogoutController.php';
         break;
     default:
@@ -105,4 +112,3 @@ switch ($request) {
 }
 
 include("views/footerView.php");
-?>
