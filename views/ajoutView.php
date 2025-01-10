@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="ajoutJeuApplistyle.css">
+    <link rel="stylesheet" href="assets/ajoutJeuApplistyle.css">
     <link rel="stylesheet" href="assets/gamecard.css">
 </head>
 

@@ -1,3 +1,94 @@
+body {
+    background-color: #211F2A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.col-md-6 {
+    flex: 1;
+    padding: 20px;
+}
+
+.form-section {
+    margin-right: 50px; /* Espace entre le formulaire et l'image */
+}
+
+.image-section {
+    margin-left: 50px; /* Espace entre l'image et le formulaire */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
 label {
     color: white;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input.form-control, textarea.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #2B2F40;
+    color: white;
+}
+
+button.btn-primary, button.btn-danger {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #6757D6;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.btn-primary:hover, button.btn-danger:hover {
+    background-color: #5746c6;
 }
