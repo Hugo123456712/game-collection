@@ -1,3 +1,76 @@
-label{
+body {
+    background-color: #211F2A;
     color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header, footer {
+    width: 100%;
+    background-color: #252836; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding-top: 60px;
+    padding-bottom: 60px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+label {
+    color: white;
+}
+
+.form-group {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px 0;
+}
+
+input.form-control, select.form-control, textarea.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #2B2F40; 
+    color: white; 
+}
+
+button.btn-primary {
+    width: 80px; 
+    padding: 10px;
+    margin-bottom: 80px;
+    background-color: #6757D6; 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.btn-primary:hover {
+    background-color: #5746c6;
 }
