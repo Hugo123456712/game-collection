@@ -15,6 +15,7 @@ $user = $_SESSION['user'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="/assets/homeView_style.css">
+    <link rel="stylesheet" href="/assets/gamecard.css">
 </head>
 <body>
     <img src="/assets/pictures/background_main.png" alt="Background Image">
@@ -25,7 +26,7 @@ $user = $_SESSION['user'];
             <div class="row">
                 <?php foreach ($jeux as $jeu): ?>
                     <div class="col-md-4">
-                        <div class="card mb-4">
+                        <div class="card mb-4" style="background-image: url('<?= htmlspecialchars($jeu['couverture']) ?>');">
                             <a href="updateGame?gameId=<?= htmlspecialchars($jeu['idJV']) ?>"></a>
                             <div class="card-body">
                                 <h5 class="card-title"><?= htmlspecialchars($jeu['nomJV']) ?></h5>

@@ -1,4 +1,8 @@
-<?php
+<?php 
+// ne pas supprimer le fichier
+
+/* fichier script appeler par la méthode post de deleteGame */
+
 require_once "models/bibliothequeModels.php";
 
 session_start();

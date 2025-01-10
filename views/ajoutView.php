@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="ajoutJeuApplistyle.css">
+<link rel="stylesheet" href="assets/gamecard.css">
 
 <main>
     <div class="container mt-5">
@@ -24,8 +25,7 @@
                     <?php if (!empty($jeux)): ?>
                         <?php foreach($jeux as $jeu): ?>
                             <div class="col-md-4">
-                                <div class="card mb-4">
-                                    <img src="<?= htmlspecialchars($jeu['couverture']) ?>" class="card-img-top" alt="<?= htmlspecialchars($jeu['nomJV']) ?>">
+                                <div class="card mb-4" style="background-image: url('<?= htmlspecialchars($jeu['couverture']) ?>');">
                                     <div class="card-body">
                                         <h5 class="card-title"><?= htmlspecialchars($jeu['nomJV']) ?></h5>
                                         <p class="card-text">Éditeur: <?= htmlspecialchars($jeu['editeur']) ?></p>
