@@ -21,8 +21,6 @@ require_once 'controllers/updateGameController.php';
 require_once 'controllers/HomeController.php';
 require_once 'controllers/ClassementController.php';
 
-include("views/headerView.php");
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -54,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
     }
 }
+
+include("views/headerView.php");
 
 // gestion de la méthode get
 switch ($request) {

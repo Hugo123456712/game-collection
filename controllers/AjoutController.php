@@ -6,7 +6,7 @@ class AjoutController
 
     public function __construct(VideoGameModels $models, BibliothequeModels $bibliothequeModels)
     {
-        $this->models = new VideoGameModels();
+        $this->models = $models;
         $this->bibliothequeModels = $bibliothequeModels;
     }
 
