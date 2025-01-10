@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Inscription</title>
-        <meta charset="utf-8" lang="fr">
-        <link rel="stylesheet" href="/assets/signUpstyle.css">
-    </head>
-    <body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="/assets/signUpstyle.css">
+</head>
+<body>
+    <?php include("headerView.php"); ?>
+    
+    <main>
         <div class="container">
-            <h2>S'inscrire</h2>
+            <h2>Inscription</h2>
             <form method="post" action="/signup">
                 <div class="form-group">
                     <label for="nom">Nom</label>
@@ -34,7 +38,10 @@
             </form>
         </div>
         <div class="container">
-            <a href="/login">Déjà inscrit ? Connectez-vous</a>
+            <a href="/login">Se connecter</a>
         </div>
-    </body>
+    </main>
+    
+    <?php include("footerView.php"); ?>
+</body>
 </html>

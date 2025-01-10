@@ -1,7 +1,98 @@
-label{
+body {
+    background-color: #211F2A;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+header, footer {
+    width: 100%;
+    background-color: #252836; 
+    padding: 10px 0;
+    text-align: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1; 
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px; 
+    padding-bottom: 60px; 
+    width: 100%; 
+    box-sizing: border-box;
+}
+.container {
+    background-color: #252836;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 20px;
+    max-width: 400px;
+    margin: 20px 0;
+    margin-top: 20px;
+    text-align: left; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input.form-control {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #2B2F40;
     color: white;
 }
 
+button.btn-primary {
+    width: 106.24px;
+    padding: 10px;
+    background-color: #6757D6;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button.btn-primary:hover {
+    background-color: #5746c6;
+}
+
+a {
+    color: #6757D6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 h2{
+    color:white;
+}
+
+label{
     color: white;
 }
