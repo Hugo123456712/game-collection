@@ -28,7 +28,8 @@ class BibliothequeModels
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addGameToBibliotheque($idUser, $idJV, $timeSpent) {
+    public function addGameToBibliotheque($idUser, $idJV, $timeSpent)
+    {
         $bdd = $this->create_bdd();
         $sql = 'INSERT INTO bibliotheque (idUser, idJV, nbHeure) VALUES (:idUser, :idJV, :timeSpent)';
         $stmt = $bdd->prepare($sql);
@@ -48,7 +49,8 @@ class BibliothequeModels
         return $result;
     }
 
-    public function deleteGameFromBibliotheque($idUser, $idJV) {
+    public function deleteGameFromBibliotheque($idUser, $idJV)
+    {
         $bdd = $this->create_bdd();
         $sql = 'DELETE FROM bibliotheque WHERE idUser = :idUser AND idJV = :idJV';
         $stmt = $bdd->prepare($sql);
@@ -66,7 +68,8 @@ class BibliothequeModels
         return $result;
     }
 
-    public function getGameFromBibliotheque($idUser, $idJV) {
+    public function getGameFromBibliotheque($idUser, $idJV)
+    {
         $bdd = $this->create_bdd();
         $sql = 'SELECT * FROM bibliotheque WHERE idUser = :idUser AND idJV = :idJV';
         $stmt = $bdd->prepare($sql);
@@ -92,7 +95,8 @@ class BibliothequeModels
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function deleteGamesByUser($idUser) {
+    public function deleteGamesByUser($idUser)
+    {
         $bdd = $this->create_bdd();
         $sql = 'DELETE FROM bibliotheque WHERE idUser = :idUser';
         $stmt = $bdd->prepare($sql);
@@ -109,4 +113,3 @@ class BibliothequeModels
         return $result;
     }
 }
-?>

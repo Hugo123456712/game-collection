@@ -16,4 +16,3 @@ class ClassementController
         require 'views/ClassementView.php';
     }
 }
-?>

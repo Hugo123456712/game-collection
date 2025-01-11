@@ -2,16 +2,19 @@
 require_once "models/videoGameModels.php";
 require_once "models/bibliothequeModels.php";
 
-class updateGameController {
+class updateGameController
+{
     private VideoGameModels $videoGameModels;
     private BibliothequeModels $bibliothequeModels;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->videoGameModels = new VideoGameModels();
         $this->bibliothequeModels = new BibliothequeModels();
     }
 
-    public function handleRequest() {
+    public function handleRequest()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['idJV'])) {
                 $idJV = $_POST['idJV'];
@@ -25,12 +28,13 @@ class updateGameController {
         }
     }
 
-    public function addGameToBibliotheque($idUser, $idJV, $timeSpent) {
+    public function addGameToBibliotheque($idUser, $idJV, $timeSpent)
+    {
         return $this->bibliothequeModels->addGameToBibliotheque($idUser, $idJV, $timeSpent);
     }
 
-    public function deleteGameFromBibliotheque($idUser, $idJV) {
+    public function deleteGameFromBibliotheque($idUser, $idJV)
+    {
         return $this->videoGameModels->deleteGameFromBibliotheque($idUser, $idJV);
     }
 }
-?>

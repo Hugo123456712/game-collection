@@ -1,13 +1,15 @@
 <?php
 
-class LogoutController {
-    public function handleRequest() {
+class LogoutController
+{
+    public function handleRequest()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
         session_unset();
-        
+
         session_destroy();
 
         header('Location: /login');

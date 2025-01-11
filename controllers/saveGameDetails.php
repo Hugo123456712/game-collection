@@ -5,12 +5,12 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_SESSION['user'])) {
-        $idUser = $_SESSION['user']['idUser']; 
+        $idUser = $_SESSION['user']['idUser'];
     } else {
         echo "Erreur: utilisateur non connecté.";
         exit();
     }
-    
+
     $idJV = $_POST['idJV'];
     $timeSpent = $_POST['timeSpent'];
 
@@ -30,4 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-?>

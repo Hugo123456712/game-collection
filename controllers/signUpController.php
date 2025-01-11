@@ -1,12 +1,15 @@
 <?php
-class SignUpController {
+class SignUpController
+{
     private $userModel;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->userModel = new signUpModels();
     }
 
-    public function handleSignUp() {
+    public function handleSignUp()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['SignUp'])) {
             $nom = htmlspecialchars($_POST['nom']);
             $prenom = htmlspecialchars($_POST['prenom']);
@@ -31,4 +34,3 @@ class SignUpController {
         }
     }
 }
-?>

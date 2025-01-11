@@ -2,16 +2,19 @@
 require_once 'models/bibliothequeModels.php';
 require_once 'models/userModels.php';
 
-class DeleteAccountController {
+class DeleteAccountController
+{
     private $bibliothequeModels;
     private $userModels;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->bibliothequeModels = new BibliothequeModels();
         $this->userModels = new UserModels();
     }
 
-    public function handleRequest() {
+    public function handleRequest()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }

@@ -10,7 +10,8 @@ class UserModels
         return $pdo;
     }
 
-    public function deleteUser($idUser) {
+    public function deleteUser($idUser)
+    {
         $bdd = $this->create_bdd();
         $sql = 'DELETE FROM utilisateur WHERE idUser = :idUser';
         $stmt = $bdd->prepare($sql);
@@ -27,4 +28,3 @@ class UserModels
         return $result;
     }
 }
-?>

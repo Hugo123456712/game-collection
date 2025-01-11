@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once "bddModels.php";
 
 class videoGameModels
@@ -110,7 +110,8 @@ class videoGameModels
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getVideoGamePerUser($idUser) {
+    public function getVideoGamePerUser($idUser)
+    {
         $bdd = $this->create_bdd();
         $sql = 'SELECT vg.*, b.nbHeure FROM jeu_video vg
                 JOIN bibliotheque b ON vg.idJV = b.idJV
@@ -120,7 +121,8 @@ class videoGameModels
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function deleteGameFromBibliotheque($idUser, $idJV) {
+    public function deleteGameFromBibliotheque($idUser, $idJV)
+    {
         $bdd = $this->create_bdd();
         $sql = "DELETE FROM bibliotheque WHERE idUser = :idUser AND idJV = :idJV";
         $stmt = $bdd->prepare($sql);

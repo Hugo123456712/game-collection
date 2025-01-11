@@ -1,4 +1,4 @@
-<?php 
+<?php
 // ne pas supprimer le fichier
 
 /* fichier script appeler par la méthode post de deleteGame */
@@ -9,12 +9,12 @@ session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_SESSION['user'])) {
-        $idUser = $_SESSION['user']['idUser']; 
+        $idUser = $_SESSION['user']['idUser'];
     } else {
         echo "Erreur: utilisateur non connecté.";
         exit();
     }
-    
+
     $idJV = $_POST['idJV'];
 
     $bibliothequeModels = new BibliothequeModels();
@@ -27,4 +27,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Erreur lors de la suppression du jeu.";
     }
 }
-?>

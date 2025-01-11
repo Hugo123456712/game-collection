@@ -1,11 +1,14 @@
 <?php
 
-class LoginController {
-    public function showLoginForm() {
+class LoginController
+{
+    public function showLoginForm()
+    {
         include 'views/loginView.php';
     }
 
-    public function handleLogin() {
+    public function handleLogin()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['mdp'];
@@ -14,14 +17,13 @@ class LoginController {
             if ($user && password_verify($password, $user['mdp'])) {
                 $_SESSION['user'] = $user;
                 $_SESSION['idUser'] = $user['idUser'];
-                error_log("User logged in: " . print_r($_SESSION['user'], true)); 
+                error_log("User logged in: " . print_r($_SESSION['user'], true));
                 header('Location: /home');
                 exit;
             } else {
-                header('Location: /?error=invalid_credentials'); 
+                header('Location: /?error=invalid_credentials');
                 exit;
             }
         }
     }
 }
-?>

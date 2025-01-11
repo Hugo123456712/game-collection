@@ -18,7 +18,7 @@ class HomeController
         }
 
         if (!isset($_SESSION['user'])) {
-            header('Location: /login'); 
+            header('Location: /login');
             exit();
         }
     }
@@ -32,4 +32,3 @@ class HomeController
         require 'views/homeView.php';
     }
 }
-?>

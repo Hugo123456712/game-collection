@@ -1,7 +1,9 @@
 <?php
 
-class loginModels {
-    public static function findByEmail($email) {
+class loginModels
+{
+    public static function findByEmail($email)
+    {
         try {
             $pdo = create_bdd();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
