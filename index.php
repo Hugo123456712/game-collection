@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 include "vendor/autoload.php";
 
-include 'models/BddModels.php';
+include 'models/bddModels.php';
 include 'models/bibliothequeModels.php';
 include 'models/loginModels.php';
 include 'models/signUpModels.php';
