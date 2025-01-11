@@ -25,7 +25,7 @@ class SignUpController {
                 exit();
             } else {
                 $error = "Les mots de passe ne correspondent pas.";
-                require 'views/SignUpView.php';
+                require 'views/signUpView.php';
                 exit();
             }
         }
