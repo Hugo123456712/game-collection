@@ -17,7 +17,7 @@ class SignUpController {
             if ($password === $password2) {
                 if ($this->userModel->checkUserExists($email)) {
                     $error = "L'utilisateur existe déjà.";
-                    require 'views/SignUpView.php';
+                    require 'views/signUpView.php';
                     exit();
                 }
                 $this->userModel->createUser($nom, $prenom, $email, $password);
