@@ -6,10 +6,10 @@ $dotenv->load();
 
 if (!function_exists('create_bdd')) {
     function create_bdd(){
-        $host = $_ENV["DBHOST"];
-        $dbname = $_ENV["DBNAME"];
-        $user = $_ENV["DBUSER"];
-        $password = $_ENV["DBMDP"];
+        $host = $_ENV["DB_HOST"];
+        $dbname = $_ENV["DB_NAME"];
+        $user = $_ENV["DB_USER"];
+        $password = $_ENV["DB_MDP"];
         $pdo = new PDO('mysql:host='.$host.'; dbname='. $dbname, $user, $password, [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
