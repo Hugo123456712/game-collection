@@ -11,7 +11,7 @@ class ProfilModels {
 
     public function getInformation($idUser) {
         $bdd = $this->create_bdd();
-        $sql = 'SELECT * FROM UTILISATEUR WHERE idUser = :idUser';
+        $sql = 'SELECT * FROM utilisateur WHERE idUser = :idUser';
         $stmt = $bdd->prepare($sql);
         $stmt->execute(['idUser' => $idUser]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -19,7 +19,7 @@ class ProfilModels {
 
     public function updateInformation($idUser, $prenom, $nom, $mdp, $email) {
         $bdd = $this->create_bdd();
-        $sql = 'UPDATE UTILISATEUR SET prenom = :prenom, nom = :nom, mdp = :mdp, email = :email WHERE idUser = :idUser';
+        $sql = 'UPDATE utilisateur SET prenom = :prenom, nom = :nom, mdp = :mdp, email = :email WHERE idUser = :idUser';
         $stmt = $bdd->prepare($sql);
         return $stmt->execute([
             'prenom' => $prenom,
