@@ -10,7 +10,7 @@ $user = $_SESSION['user'];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['deleteAccount'])) {
-        require_once '/models/FirstProfilsPageModels.php';
+        require_once 'models/FirstProfilsPageModels.php';
         deleteUserAndLibrary($user['idUser']);
         session_destroy();
         header('Location: /login');
@@ -22,4 +22,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include('/views/FirstProfilPageViews.php');
+include('views/FirstProfilPageViews.php');
