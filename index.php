@@ -20,7 +20,6 @@ require_once 'controllers/profilController.php';
 require_once 'controllers/updateGameController.php';
 require_once 'controllers/HomeController.php';
 require_once 'controllers/ClassementController.php';
-require_once 'controllers/FirstProfilPageControllers.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -50,12 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case '/profil':
             $profilController = new ProfilController();
             $profilController->updateProfile($_POST['idUser'], $_POST['prenom'], $_POST['nom'], $_POST['pwd'], $_POST['email']);
-            break;
-        case '/deleteAccount':
-            require 'controllers/DeleteCompteController.php';
-            break;
-        case '/logout':
-            require 'controllers/LogoutController.php';
             break;
     }
 }
@@ -106,9 +99,11 @@ switch ($request) {
         $profilController = new ProfilController();
         $profilController->displayProfile($_SESSION['user']['idUser']);
         break;
-    case '/firstProfilPage':
-        $firstProfilPageController = new FirstProfilPageControllers();
-        $firstProfilPageController->render();
+    case '/deleteAccount':
+        require 'controllers/DeleteCompteController.php';
+        break;
+    case '/logout':
+        require 'controllers/LogoutController.php';
         break;
     default:
         break;
