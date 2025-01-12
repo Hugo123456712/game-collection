@@ -22,4 +22,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require_once '/views/FirstProfilPageViews.php';
+include('/views/FirstProfilPageViews.php');
