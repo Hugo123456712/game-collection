@@ -1,6 +1,6 @@
 body {
     background-color: #211F2A;
-    color: white;
+    color: white !important;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -41,13 +41,13 @@ main {
 }
 
 table {
-    /* color: white; */
+    color: white !important;
 }
 
 td {
-    /* color: white; */
+    color: white !important;
 }
 
 th {
-    /* color: white; */
+    color: white !important;
 }
