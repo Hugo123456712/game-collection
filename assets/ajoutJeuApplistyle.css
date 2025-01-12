@@ -2,16 +2,6 @@ h1, h2 {
     color: white;
 }
 
-.card {
-    margin-bottom: 20px; 
-}
-
-.card-body {
-    background-color: rgba(0, 0, 0, 0.7); 
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.card-title, .card-text {
-    color: white; 
+.col-md-4{
+    margin-left: 20px ;
 }
