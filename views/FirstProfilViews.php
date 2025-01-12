@@ -23,7 +23,7 @@ $user = $_SESSION['user'];
         <p class="nom"><strong>Nom :</strong> <?= htmlspecialchars($user['nom']) ?></p>
         <p class="prenom"><strong>Prénom :</strong> <?= htmlspecialchars($user['prenom']) ?></p>
         <p class="email"><strong>Email :</strong> <?= htmlspecialchars($user['email']) ?></p>
-        <form method="post" action="/profil">
+        <form action="/profil">
             <button type="submit" class="btn btn-primary">Modifier mon profil</button>
         </form>
         <form method="post" action="/deleteAccount">
