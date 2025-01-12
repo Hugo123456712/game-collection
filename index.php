@@ -53,7 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include("views/headerView.php");
+if (!($request === '/signup' || $request === '/login' || $request === '/')) {
+    include("views/headerView.php");
+}
 
 switch ($request) {
     case '/':
@@ -109,4 +111,6 @@ switch ($request) {
         break;
 }
 
-include("views/footerView.php");
+if (!($request === '/signup' || $request === '/login' || $request === '/')){
+    include("views/footerView.php");
+}
