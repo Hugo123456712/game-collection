@@ -41,7 +41,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="profil">PROFIL</a>
                     </li>
-                    
                 </ul>
             </div>
         </nav>
