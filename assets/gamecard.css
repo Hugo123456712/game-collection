@@ -10,6 +10,7 @@
     background-position: center;
     height: 300px; /* Ajustez la hauteur selon vos besoins */
     position: relative;
+    width: 400px;
 }
 
 .card.mb-4:hover {
