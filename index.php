@@ -55,14 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 include("views/headerView.php");
 
-// gestion de la méthode get
 switch ($request) {
     case '/':
     case '':
         include 'views/signUpView.php';
         break;
     case '/bibliotheque':
-        // Inclure la vue de la bibliothèque ici
         break;
     case '/signup':
         include 'views/signUpView.php';
