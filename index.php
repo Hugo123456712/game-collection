@@ -20,7 +20,7 @@ require_once 'controllers/profilController.php';
 require_once 'controllers/updateGameController.php';
 require_once 'controllers/HomeController.php';
 require_once 'controllers/ClassementController.php';
-require_once 'controllers/FirstProfilPageControllers.php';
+require_once 'controllers/FirstProfilPageController.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
