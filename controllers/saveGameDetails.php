@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $existingGame = $bibliothequeModels->getGameFromBibliotheque($idUser, $idJV);
 
     if ($existingGame) {
-        echo "Le jeu est déjà dans votre bibliothèque.";
+        echo "<br>Le jeu est déjà dans votre bibliothèque";
     } else {
         $result = $bibliothequeModels->addGameToBibliotheque($idUser, $idJV, $timeSpent);
 
