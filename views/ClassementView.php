@@ -13,7 +13,7 @@ $user = $_SESSION['user'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classement</title>
-    <link rel="stylesheet" href="/assets/classementViewStyle.css">
+    <link rel="stylesheet" href="/assets/ClassementViewStyle.css">
 </head>
 <body>
     <?php include("headerView.php"); ?>
