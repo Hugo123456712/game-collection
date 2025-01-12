@@ -30,10 +30,10 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="ajout">MA BIBLIOTHEQUE</a>
+                        <a class="nav-link" href="home">MA BIBLIOTHEQUE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="ajoutFormulaire">AJOUTER UN JEU</a>
+                        <a class="nav-link" href="ajout">AJOUTER UN JEU</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="classement">CLASSEMENT</a>
