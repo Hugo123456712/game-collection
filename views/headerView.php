@@ -39,7 +39,7 @@
                         <a class="nav-link" href="classement">CLASSEMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="profil">PROFIL</a>
+                        <a class="nav-link" href="firstProfilPage">PROFIL</a>
                     </li>
                 </ul>
             </div>
