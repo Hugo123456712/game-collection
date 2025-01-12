@@ -9,7 +9,7 @@ $user = $_SESSION['user'];
 
 <head>
     <title>Classement</title>
-    <link rel="stylesheet" href="/assets/classementView_style.css">
+    <link rel="stylesheet" href="/assets/classementViewStyle.css">
 </head>
 
 <div class="container mt-5">
