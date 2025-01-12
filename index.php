@@ -20,7 +20,7 @@ require_once 'controllers/profilController.php';
 require_once 'controllers/updateGameController.php';
 require_once 'controllers/HomeController.php';
 require_once 'controllers/ClassementController.php';
-include 'controllers/FirstProfilPageController.php';
+require_once 'controllers/FirstProfilPageController.php';
 
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -111,13 +111,13 @@ switch ($request) {
         $profilController->displayProfile($_SESSION['user']['idUser']);
         break;
     case '/firstProfilPage':
-        $firstProfilPageController = new FirstProfilPageControllers();
+        $firstProfilPageController = new FirstProfilPageController();
         $firstProfilPageController->render();
         break;
     default:
         break;
 }
 
-if (!($request === '/signup' || $request === '/login' || $request === '/')){
+if (!($request === '/signup' || $request === '/login' || $request === '/')) {
     include("views/footerView.php");
 }
