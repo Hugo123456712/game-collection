@@ -23,9 +23,9 @@ $user = $_SESSION['user'];
         <p class="nom"><strong>Nom :</strong> <?= htmlspecialchars($user['nom']) ?></p>
         <p class="prenom"><strong>Prénom :</strong> <?= htmlspecialchars($user['prenom']) ?></p>
         <p class="email"><strong>Email :</strong> <?= htmlspecialchars($user['email']) ?></p>
-        <form action="/profil">
+        <a href="/profil">
             <button type="submit" class="btn btn-primary">Modifier mon profil</button>
-        </form>
+        </a>
         <form method="post" action="/deleteAccount">
             <button type="submit" class="btn btn-danger">Supprimer mon compte</button>
         </form>
